@@ -11,5 +11,4 @@ const Info = ({ name, biography }) => {
     );
 }
 
-
 export default Info;

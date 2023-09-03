@@ -1,6 +1,6 @@
 html,
 body,
-#root{
+#root {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,8 @@ body,
     height: 100%;
     background: white;
 }
-canvas{
+
+canvas {
     touch-action: none;
     position: absolute;
     z-index: 1;
@@ -25,13 +26,13 @@ canvas{
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 300px;
-  }
-  
-  .info-title {
+}
+
+.info-title {
     font-size: 24px;
     margin-bottom: 10px;
-  }
-  
-  .info-biography {
+}
+
+.info-biography {
     font-size: 16px;
-  }
+}
