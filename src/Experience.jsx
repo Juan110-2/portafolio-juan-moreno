@@ -1,6 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import Dragon from "./World/Dragon";
 
 const Experience = () => {
     const boxRef = useRef();
@@ -31,6 +32,7 @@ const Experience = () => {
             <OrbitControls makeDefault />
             <ambientLight intensity={0.5} />
             <directionalLight position={[10, 10, 5]} intensity={2} />
+            <Dragon />
             <mesh ref={boxRef}>
                 <boxGeometry args={[5, 5, 5]} />
                 <meshStandardMaterial color="purple" />
