@@ -10,7 +10,7 @@ const root = createRoot(document.getElementById('root'));
 
 
 root.render(
-    <Canvas camera={{ position: [0, 0, 20] }}>
+    <Canvas camera={{ position: [0, 0, 60] }}>
         <Experience />
         <Info name={"Juan José Moreno Jaramillo"} biography={"Hijo, nieto, hermano, estudiante."}/>
     </Canvas>
