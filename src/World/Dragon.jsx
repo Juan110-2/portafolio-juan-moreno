@@ -21,6 +21,7 @@ const Dragon = () => {
             <primitive object={dragonModel.scene} />
         </mesh>
     )
+    
 }
 
 export default Dragon;
