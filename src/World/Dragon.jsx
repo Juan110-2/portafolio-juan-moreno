@@ -17,7 +17,7 @@ const Dragon = () => {
        }, [])
 
     return (
-        <mesh ref={dragonRef} position-x={0}  position-y={16} rotation-y={-Math.PI * 0.15} scale={0.1}>
+        <mesh ref={dragonRef} position-x={3}  position-y={-1}  position-z={-6} rotation-y={-Math.PI * 0.15} scale={0.04}>
             <primitive object={dragonModel.scene} />
         </mesh>
     )

@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import Dragon from "./World/Dragon";
 import { Silla } from "./World/Silla";
+import  Lights  from "./World/Lights";
+import  Environments  from "./World/Enviroment";
 
 const Experience = () => {
     const boxRef = useRef();
@@ -22,34 +24,40 @@ const Experience = () => {
         sphereRef.current.position.x = 10;
         torusRef.current.position.x = 20;
 
-        coneRef.current.position.y = Math.sin(time) * 10;
-        sphereRef.current.position.y = Math.cos(time) * 10;
-        torusRef.current.position.y = Math.sin(time) * 10;
-        boxRef.current.position.y = Math.cos(time) * 10;
+        coneRef.current.position.y = Math.sin(time) * 5;
+        sphereRef.current.position.y = Math.cos(time) * 5;
+        torusRef.current.position.y = Math.sin(time) * 5;
+        boxRef.current.position.y = Math.cos(time) * 5;
     });
 
     return (
         <>
             <OrbitControls makeDefault />
             <ambientLight intensity={0.5} />
+            <Lights />
+            <Environments />
             <directionalLight position={[10, 10, 5]} intensity={2} />
             <Dragon />
             <Silla />
-            <mesh ref={boxRef}>
-                <boxGeometry args={[5, 5, 5]} />
+            <mesh position-z={-30} ref={boxRef}>
+                <boxGeometry args={[2,2,2]} />
                 <meshStandardMaterial color="purple" />
             </mesh>
-            <mesh ref={sphereRef} scale={[1, 1, 1]}>
-                <sphereGeometry args={[3, 100, 100]} />
+            <mesh position-z={-30} ref={sphereRef} scale={[1, 1, 1]}>
+                <sphereGeometry args={[1, 100, 100]} />
                 <meshStandardMaterial color="red" />
             </mesh>
-            <mesh ref={coneRef} scale={[1, 1, 1]}>
-                <coneGeometry args={[2, 5, 32]} />
+            <mesh position-z={-30} ref={coneRef} scale={[1, 1, 1]}>
+                <coneGeometry args={[1, 2, 32]} />
                 <meshLambertMaterial color="blue" />
             </mesh>
-            <mesh ref={torusRef} scale={[1, 1, 1]}>
-                <torusGeometry args={[1.5, 1, 32, 50]} />
+            <mesh position-z={-30} ref={torusRef} scale={[0.9, 0.9, 0.9]}>
+                <torusGeometry args={[1.5, 1, 10, 50]} />
                 <meshPhysicalMaterial color="yellow" />
+            </mesh>
+            <mesh position-y={-2} rotation-x={-Math.PI / 2}>
+                <planeGeometry attach="geometry" args={[12, 12]} />
+                <meshStandardMaterial attach="material" color="green" />
             </mesh>
         </>
     );

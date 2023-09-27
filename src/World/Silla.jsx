@@ -23,9 +23,9 @@ export function Silla(props) {
                         // receiveShadow
                         geometry={nodes.Object_4.geometry}
                         // material={materials.Material}
-                        position={[0, 1.881, 0]}
-                        rotation={[-Math.PI, 0, 0]}
-                        scale={[1.038, 0.066, 1.038]}
+                        position={[-3, -1, 3]}
+                        rotation={[-Math.PI, 1, 0]}
+                        scale={[0.5, 0.033, 0.5]}
                     >
                         <meshStandardMaterial {...propsTextures} />
                     </mesh>
