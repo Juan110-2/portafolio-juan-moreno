@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import Dragon from "./Models/Dragon";
 import { Silla } from "./Models/Silla";
+import Text from "./3DText/Text";
 
 const DragonScene = () => {
     const boxRef = useRef();
@@ -55,6 +56,7 @@ const DragonScene = () => {
                 <planeGeometry attach="geometry" args={[12, 12]} />
                 <meshStandardMaterial attach="material" color="gray" />
             </mesh>
+            <Text text={`  Welcome to\n\nJuan's Villa`} />
         </>
     );
 }
