@@ -5,6 +5,7 @@ import Dragon from "./Models/Dragon";
 import { Silla } from "./Models/Silla";
 import { Sword } from "./Models/Sword";
 import Text from "./3DText/Text";
+import { Physics, RigidBody } from "@react-three/rapier";
 
 const DragonScene = ({ show, setShow }) => {
     const boxRef = useRef();
@@ -36,7 +37,15 @@ const DragonScene = ({ show, setShow }) => {
             <ambientLight intensity={0.5} />
             <directionalLight position={[10, 10, 5]} intensity={2} />
             <Dragon />
-            <Sword show={show} onClick={() => setShow(!show)} />
+            <Physics>
+                <Sword show={show} onClick={() => setShow(!show)} />
+                <RigidBody type="fixed">
+                    <mesh rotation-x={-Math.PI / 2} position-y={-2}>
+                        <planeGeometry args={[10, 10, 10, 10]} />
+                        <meshStandardMaterial color="#e4f0f8" />
+                    </mesh>
+                </RigidBody>
+            </Physics>
             <Silla />
             <mesh position-z={-30} ref={boxRef}>
                 <boxGeometry args={[2, 2, 2]} />
@@ -53,10 +62,6 @@ const DragonScene = ({ show, setShow }) => {
             <mesh position-z={-30} ref={torusRef} scale={[0.9, 0.9, 0.9]}>
                 <torusGeometry args={[1.5, 1, 10, 50]} />
                 <meshPhysicalMaterial color="yellow" />
-            </mesh>
-            <mesh position-y={-2} rotation-x={-Math.PI / 2}>
-                <planeGeometry attach="geometry" args={[12, 12]} />
-                <meshStandardMaterial attach="material" color="gray" />
             </mesh>
             <Text text={`  Welcome to\n\nJuan's Villa`} />
         </>
