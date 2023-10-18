@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber"
 import Experience from "./Experience"
 import Info from "./Info/Info"
+import { useState } from "react";
 
 const App = () => {
     // Camera settings
@@ -8,15 +9,20 @@ const App = () => {
         position: [2, 2, 8],
         fov: 60
     }
+    const [show, setShow] = useState(true);
 
     return (
         <>
-            <Info name={"Juan Moreno"} biography={"Web 3D Developer"} />
+            <Info
+                name="Juan Moreno"
+                biography="3D Developer"
+                show={show}
+            />
             <Canvas
-            shadows
+                shadows
                 camera={cameraSettings}
             >
-                <Experience />
+                <Experience show={show} setShow={setShow} />
             </Canvas>
         </>
     )

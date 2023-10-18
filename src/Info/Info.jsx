@@ -1,15 +1,19 @@
-import "./info.css"
+import "./info.css";
+const Info = ({ name, biography, show }) => {
 
-const Info = ({ name, biography }) => {
+  return (
 
-    return (
-        <div className="container-info">
-            <div className="card-info">
-                <h1 className="name">{name}</h1>
-                <span className="biography">{biography}</span>
-            </div>
-        </div>
-    )
-}
+    !show ? (
+      <div className="container-info">
+         <div className="container-info">
+             <div className="card-info">
+                 <h1 className="name">{name}</h1>
+                 <span className="biography">{biography}</span>
+             </div>
+         </div>
+      </div>
+    ) : null
+  );
+};
 
 export default Info;

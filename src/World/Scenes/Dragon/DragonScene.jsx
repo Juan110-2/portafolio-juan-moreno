@@ -3,9 +3,10 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import Dragon from "./Models/Dragon";
 import { Silla } from "./Models/Silla";
+import { Sword } from "./Models/Sword";
 import Text from "./3DText/Text";
 
-const DragonScene = () => {
+const DragonScene = ({ show, setShow }) => {
     const boxRef = useRef();
     const sphereRef = useRef();
     const coneRef = useRef();
@@ -35,9 +36,10 @@ const DragonScene = () => {
             <ambientLight intensity={0.5} />
             <directionalLight position={[10, 10, 5]} intensity={2} />
             <Dragon />
+            <Sword show={show} onClick={() => setShow(!show)} />
             <Silla />
             <mesh position-z={-30} ref={boxRef}>
-                <boxGeometry args={[2,2,2]} />
+                <boxGeometry args={[2, 2, 2]} />
                 <meshStandardMaterial color="purple" />
             </mesh>
             <mesh position-z={-30} ref={sphereRef} scale={[1, 1, 1]}>
